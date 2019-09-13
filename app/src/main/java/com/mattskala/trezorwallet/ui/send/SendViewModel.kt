@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.ui.send
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.satoshilabs.trezor.intents.ui.data.SignTxRequest
 import com.satoshilabs.trezor.intents.ui.data.TrezorRequest
 import com.mattskala.trezorwallet.BuildConfig

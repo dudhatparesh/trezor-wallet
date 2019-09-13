@@ -1,9 +1,9 @@
 package com.mattskala.trezorwallet.ui.main
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.mattskala.trezorwallet.R
 import com.mattskala.trezorwallet.data.entity.Account
 import com.mattskala.trezorwallet.data.item.AccountItem
@@ -13,7 +13,6 @@ import com.mattskala.trezorwallet.data.item.Item
 import com.mattskala.trezorwallet.ui.formatBtcValue
 import kotlinx.android.synthetic.main.item_account.view.*
 import kotlinx.android.synthetic.main.item_account_add.view.*
-import java.lang.IllegalArgumentException
 
 /**
  * Accounts list adapter.

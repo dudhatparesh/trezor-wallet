@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.ui.addressdetail
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mattskala.trezorwallet.R
 import com.mattskala.trezorwallet.TrezorApplication
 import com.mattskala.trezorwallet.data.entity.Account

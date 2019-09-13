@@ -1,8 +1,8 @@
 package com.mattskala.trezorwallet.ui.addresses
 
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater

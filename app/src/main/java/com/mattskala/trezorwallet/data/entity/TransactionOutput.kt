@@ -1,6 +1,6 @@
 package com.mattskala.trezorwallet.data.entity
 
-import android.arch.persistence.room.Entity
+import androidx.room.Entity
 import android.content.res.Resources
 import com.mattskala.trezorwallet.R
 

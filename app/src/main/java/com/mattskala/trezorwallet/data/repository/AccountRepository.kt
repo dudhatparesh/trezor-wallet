@@ -1,6 +1,6 @@
 package com.mattskala.trezorwallet.data.repository
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.mattskala.trezorwallet.data.AppDatabase
 import com.mattskala.trezorwallet.data.entity.Account
 import kotlinx.coroutines.Dispatchers

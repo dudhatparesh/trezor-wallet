@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.ui.getstarted
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.widget.Toast
 import com.satoshilabs.trezor.intents.ui.data.GenericResult
 import com.satoshilabs.trezor.lib.protobuf.TrezorMessage

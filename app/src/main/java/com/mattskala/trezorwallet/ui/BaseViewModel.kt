@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.ui
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -12,7 +12,7 @@ import org.kodein.di.android.closestKodein
 abstract class BaseViewModel(app: Application) : AndroidViewModel(app), KodeinAware {
     override val kodein by closestKodein(app)
 
-    protected val job = Job()
+    private val job = Job()
     protected val viewModelScope = CoroutineScope(Dispatchers.Main + job)
 
     override fun onCleared() {

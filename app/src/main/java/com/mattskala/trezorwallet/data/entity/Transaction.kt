@@ -1,6 +1,6 @@
 package com.mattskala.trezorwallet.data.entity
 
-import android.arch.persistence.room.Entity
+import androidx.room.Entity
 import java.text.SimpleDateFormat
 import java.util.*
 

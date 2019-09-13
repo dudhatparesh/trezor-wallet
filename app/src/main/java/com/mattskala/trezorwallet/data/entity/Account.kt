@@ -1,8 +1,8 @@
 package com.mattskala.trezorwallet.data.entity
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import android.content.res.Resources
 import com.satoshilabs.trezor.lib.protobuf.TrezorType
 import com.mattskala.trezorwallet.R

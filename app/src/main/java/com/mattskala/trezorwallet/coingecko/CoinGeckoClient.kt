@@ -38,7 +38,7 @@ class CoinGeckoClient {
         val request = Request.Builder().url(url).build()
         val response = client.newCall(request).execute()
         if (!response.isSuccessful) throw IOException("Unexpected code: $response")
-        val body = response.body() ?: throw IOException("Response body is null")
+        val body = response.body ?: throw IOException("Response body is null")
         body.string()
     }
 }

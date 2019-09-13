@@ -1,8 +1,8 @@
 package com.mattskala.trezorwallet.ui.transactions
 
 import android.annotation.SuppressLint
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +27,7 @@ import java.util.*
 /**
  * Transactions list adapter.
  */
-class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
     companion object {
         private const val TYPE_SUMMARY = 1
         private const val TYPE_DATE = 2
@@ -38,7 +38,7 @@ class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var onTransactionClickListener: ((TransactionWithInOut) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             TYPE_SUMMARY -> {
@@ -57,7 +57,7 @@ class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is SummaryViewHolder -> {
                 val item = items[position] as AccountSummaryItem
@@ -87,7 +87,7 @@ class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    class SummaryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SummaryViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SetTextI18n")
         fun bind(summary: AccountSummary, rate: Double, currencyCode: String) = with(itemView) {
             itemBalance.setTitle(R.string.balance)
@@ -110,7 +110,7 @@ class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    class DateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class DateViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         fun bind(date: Date?) = with(itemView) {
             txtDate.text = if (date != null)
                 SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG).format(date) else
@@ -118,7 +118,7 @@ class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class TransactionViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SetTextI18n")
         fun bind(transaction: TransactionWithInOut, rate: Double, currencyCode: String) = with(itemView) {
             txtDateTime.text = transaction.tx.getBlockTimeFormatted() ?:

@@ -1,8 +1,8 @@
 package com.mattskala.trezorwallet.ui.main
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.satoshilabs.trezor.intents.ui.data.TrezorRequest
 import com.satoshilabs.trezor.lib.protobuf.TrezorType
 import com.mattskala.trezorwallet.R

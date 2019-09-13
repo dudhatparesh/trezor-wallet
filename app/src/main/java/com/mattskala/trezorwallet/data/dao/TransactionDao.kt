@@ -1,10 +1,10 @@
 package com.mattskala.trezorwallet.data.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.mattskala.trezorwallet.data.entity.Transaction
 import com.mattskala.trezorwallet.data.entity.TransactionInput
 import com.mattskala.trezorwallet.data.entity.TransactionOutput
@@ -16,14 +16,14 @@ import com.mattskala.trezorwallet.data.entity.TransactionWithInOut
 @Dao
 abstract class TransactionDao {
     @Query("SELECT * FROM transactions WHERE txid = :txid AND account = :account")
-    @android.arch.persistence.room.Transaction
+    @androidx.room.Transaction
     abstract fun getByTxid(account: String, txid: String): TransactionWithInOut
 
     @Query("SELECT * FROM transactions WHERE account = :account")
     abstract fun getByAccount(account: String): List<Transaction>
 
     @Query("SELECT * FROM transactions WHERE account = :account")
-    @android.arch.persistence.room.Transaction
+    @androidx.room.Transaction
     abstract fun getByAccountLiveDataWithInOut(account: String): LiveData<List<TransactionWithInOut>>
 
     @Query("SELECT * FROM transaction_outputs WHERE account = :account AND isMine = 1")
@@ -47,7 +47,7 @@ abstract class TransactionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(output: TransactionOutput)
 
-    @android.arch.persistence.room.Transaction
+    @androidx.room.Transaction
     open fun insert(transaction: TransactionWithInOut) {
         insert(transaction.tx)
         transaction.vin.forEach {
@@ -58,7 +58,7 @@ abstract class TransactionDao {
         }
     }
 
-    @android.arch.persistence.room.Transaction
+    @androidx.room.Transaction
     open fun insertTransactions(transactions: List<TransactionWithInOut>) {
         transactions.forEach {
             insert(it)
@@ -74,7 +74,7 @@ abstract class TransactionDao {
     @Query("DELETE FROM transaction_outputs")
     abstract fun deleteTransactionOutputs()
 
-    @android.arch.persistence.room.Transaction
+    @androidx.room.Transaction
     open fun deleteAll() {
         deleteTransactions()
         deleteTransactionInputs()

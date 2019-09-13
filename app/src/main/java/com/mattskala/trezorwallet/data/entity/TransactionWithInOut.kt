@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.data.entity
 
-import android.arch.persistence.room.Embedded
-import android.arch.persistence.room.Relation
+import androidx.room.Embedded
+import androidx.room.Relation
 import com.mattskala.trezorwallet.blockbook.response.Tx
 import com.mattskala.trezorwallet.labeling.AccountMetadata
 

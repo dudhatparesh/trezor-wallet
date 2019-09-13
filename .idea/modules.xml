@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trezor-android/trezor-intents/trezor-intents.iml" filepath="$PROJECT_DIR$/trezor-android/trezor-intents/trezor-intents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trezor-android/trezor-lib/trezor-lib.iml" filepath="$PROJECT_DIR$/trezor-android/trezor-lib/trezor-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trezor-wallet.iml" filepath="$PROJECT_DIR$/trezor-wallet.iml" />
+    </modules>
+  </component>
+</project>

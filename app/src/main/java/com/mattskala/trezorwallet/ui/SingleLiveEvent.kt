@@ -1,11 +1,7 @@
 package com.mattskala.trezorwallet.ui
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
-import android.support.annotation.MainThread
-import android.util.Log
-
+import androidx.annotation.MainThread
+import androidx.lifecycle.MutableLiveData
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -23,7 +19,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 class SingleLiveEvent<T> : MutableLiveData<T>() {
 
     private val pending = AtomicBoolean(false)
-
+/*
     @MainThread
     override fun observe(owner: LifecycleOwner, observer: Observer<T>) {
 
@@ -37,7 +33,7 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
                 observer.onChanged(t)
             }
         })
-    }
+    }*/
 
     @MainThread
     override fun setValue(t: T?) {

@@ -10,9 +10,6 @@ import com.crashlytics.android.Crashlytics
 import io.fabric.sdk.android.Fabric
 import com.crashlytics.android.core.CrashlyticsCore
 
-
-
-
 class TrezorApplication : Application(), KodeinAware {
     override val kodein = Kodein.lazy {
         import(appModule(this@TrezorApplication))

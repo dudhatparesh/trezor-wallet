@@ -1,14 +1,14 @@
 package com.mattskala.trezorwallet.ui.main
 
 import android.app.Activity
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.GravityCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -82,7 +82,7 @@ class MainActivity : BaseActivity(), LabelDialogFragment.EditTextDialogListener 
         }
 
         accountsList.adapter = accountsAdapter
-        accountsList.layoutManager = LinearLayoutManager(this)
+        accountsList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 
         btnLabeling.setOnClickListener {
             when (viewModel.labelingState.value) {
@@ -284,7 +284,7 @@ class MainActivity : BaseActivity(), LabelDialogFragment.EditTextDialogListener 
         showFragment(SendFragment::class, accountId)
     }
 
-    private fun createFragment(klass: KClass<out Fragment>, accountId: String): Fragment {
+    private fun createFragment(klass: KClass<out androidx.fragment.app.Fragment>, accountId: String): androidx.fragment.app.Fragment {
         val f = klass.java.newInstance()
         val args = Bundle()
         args.putString("account_id", accountId)
@@ -292,7 +292,7 @@ class MainActivity : BaseActivity(), LabelDialogFragment.EditTextDialogListener 
         return f
     }
 
-    private fun showFragment(klass: KClass<out Fragment>, accountId: String) {
+    private fun showFragment(klass: KClass<out androidx.fragment.app.Fragment>, accountId: String) {
         val tag = klass.java.name + "_" + accountId
         val f = supportFragmentManager.findFragmentByTag(tag)
                 ?: createFragment(klass, accountId)

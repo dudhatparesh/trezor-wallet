@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.di
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.mattskala.trezorwallet.TrezorApplication
 import com.mattskala.trezorwallet.blockbook.BlockbookSocketService
 import com.mattskala.trezorwallet.coingecko.CoinGeckoClient

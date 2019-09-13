@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.data.entity
 
 import android.annotation.SuppressLint
-import android.arch.persistence.room.Entity
+import androidx.room.Entity
 import android.os.Parcelable
 import com.mattskala.trezorwallet.BuildConfig
 import com.mattskala.trezorwallet.crypto.ExtendedPublicKey

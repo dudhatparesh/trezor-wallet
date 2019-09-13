@@ -1,7 +1,7 @@
 package com.mattskala.trezorwallet.ui.transactiondetail
 
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mattskala.trezorwallet.data.entity.TransactionOutput
 import com.mattskala.trezorwallet.data.entity.TransactionWithInOut
 import com.mattskala.trezorwallet.data.repository.TransactionRepository

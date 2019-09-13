@@ -1,6 +1,6 @@
 package com.mattskala.trezorwallet.data
 
-import android.arch.persistence.room.TypeConverter
+import androidx.room.TypeConverter
 import com.mattskala.trezorwallet.data.entity.Transaction
 
 

@@ -1,8 +1,8 @@
 package com.mattskala.trezorwallet.data
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
-import android.arch.persistence.room.TypeConverters
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.mattskala.trezorwallet.data.dao.AccountDao
 import com.mattskala.trezorwallet.data.dao.AddressDao
 import com.mattskala.trezorwallet.data.dao.TransactionDao

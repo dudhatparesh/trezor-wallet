@@ -3,8 +3,8 @@ package com.mattskala.trezorwallet.ui
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AlertDialog
+import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AlertDialog
 import android.view.inputmethod.InputMethodManager
 import com.mattskala.trezorwallet.R
 import kotlinx.android.synthetic.main.dialog_edit_text.view.*
@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.dialog_edit_text.view.*
 /**
  * A dialog fragment containing EditText.
  */
-class LabelDialogFragment : DialogFragment() {
+class LabelDialogFragment : androidx.fragment.app.DialogFragment() {
     companion object {
         const val ARG_TITLE = "title"
         const val ARG_TEXT = "text"
