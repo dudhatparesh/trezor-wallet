@@ -1,13 +1,13 @@
 package com.mattskala.trezorwallet.ui.transactions
 
 import android.annotation.SuppressLint
-import androidx.core.content.res.ResourcesCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.mattskala.trezorwallet.R
 import com.mattskala.trezorwallet.data.entity.Transaction
 import com.mattskala.trezorwallet.data.entity.TransactionWithInOut
@@ -27,7 +27,7 @@ import java.util.*
 /**
  * Transactions list adapter.
  */
-class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
+class TransactionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
         private const val TYPE_SUMMARY = 1
         private const val TYPE_DATE = 2
@@ -38,7 +38,7 @@ class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<an
 
     var onTransactionClickListener: ((TransactionWithInOut) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             TYPE_SUMMARY -> {
@@ -57,7 +57,7 @@ class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<an
         }
     }
 
-    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is SummaryViewHolder -> {
                 val item = items[position] as AccountSummaryItem
@@ -87,7 +87,7 @@ class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<an
         }
     }
 
-    class SummaryViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class SummaryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SetTextI18n")
         fun bind(summary: AccountSummary, rate: Double, currencyCode: String) = with(itemView) {
             itemBalance.setTitle(R.string.balance)
@@ -110,7 +110,7 @@ class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<an
         }
     }
 
-    class DateViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class DateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(date: Date?) = with(itemView) {
             txtDate.text = if (date != null)
                 SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG).format(date) else
@@ -118,11 +118,11 @@ class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<an
         }
     }
 
-    class TransactionViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SetTextI18n")
         fun bind(transaction: TransactionWithInOut, rate: Double, currencyCode: String) = with(itemView) {
-            txtDateTime.text = transaction.tx.getBlockTimeFormatted() ?:
-                    resources.getString(R.string.tx_unconfirmed)
+            txtDateTime.text = transaction.tx.getBlockTimeFormatted()
+                    ?: resources.getString(R.string.tx_unconfirmed)
 
             val targets = transaction.vout.filter {
                 when (transaction.tx.type) {
@@ -148,7 +148,7 @@ class TransactionsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<an
 
             val sign = if (transaction.tx.type == Transaction.Type.RECV) "+" else "−"
             val value = if (transaction.tx.type == Transaction.Type.RECV) transaction.tx.value
-                else transaction.tx.value + transaction.tx.fee
+            else transaction.tx.value + transaction.tx.fee
             txtValueBtc.text = sign + formatBtcValue(value)
             val colorRes = when (transaction.tx.type) {
                 Transaction.Type.RECV -> R.color.colorPrimary
